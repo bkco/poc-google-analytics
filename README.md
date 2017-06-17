@@ -2,7 +2,7 @@
 
 This repo demonstrates google analytics API usage for the standard analytics API and the beta Realtime API.
 
-The realtime API was used to verify working analytics as part of Continuous Integration build.
+The realtime API was used to verify working analytics as part of a Continuous Integration build.
 
 A "service account" is recommended as a way of configuring client credentials:
 * find service account [setup details here](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-java).
