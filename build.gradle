@@ -1,0 +1,71 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+idea {
+	project {
+        languageLevel = '1.8'
+    }
+    module {
+        jdkName = '1.8'
+    }
+}
+
+jar {
+    baseName = 'poc-google-analytics'
+    version = '0.0.1'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+	ext {
+		springBootVersion = '1.5.1.RELEASE'
+	}
+    repositories {
+		mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.apache.commons:commons-lang3:3.4')
+    compile('com.google.guava:guava:21.0')
+
+    compile 'com.google.api-client:google-api-client:1.22.0'
+    compile 'com.google.http-client:google-http-client-gson:1.19.0'
+    compile 'com.google.apis:google-api-services-analytics:v3-rev139-1.22.0'
+    compile 'com.google.apis:google-api-services-analyticsreporting:v4-rev114-1.22.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
